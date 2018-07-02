@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  ssh:
+    build: 
+      context: .
+      dockerfile: ssh-agent.dockerfile
+    volumes:
+      - ssh:/ssh
+      - $HOME:$HOME:ro
+    environment:
+      SSH_AUTH_SOCK: /ssh/auth/sock
+
+volumes:
+  ssh:
+    external:
+      name: ssh-agent
