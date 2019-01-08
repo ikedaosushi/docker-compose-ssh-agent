@@ -9,6 +9,7 @@ services:
       - $HOME:$HOME:ro
     environment:
       SSH_AUTH_SOCK: /ssh/auth/sock
+    restart: always
 
 volumes:
   ssh:
